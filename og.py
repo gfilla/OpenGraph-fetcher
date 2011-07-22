@@ -28,6 +28,27 @@ class OG:
 		print "URL " + self.get_property("og:url")
 		print "Description " + self.get_property("og:description")
 		print "Site name " + self.get_property("og:site_name")
+		print "Contact"
 		print "Email " + self.get_property("og:email")
 		print "Phone Number " + self.get_property("og:phone_number")
+		print "Fax number" + self.get_property("og:fax_number")
+		print "Location"
+		print "Latitude " + self.get_property("og:latitude")
+		print "Longitude " + self.get_property("og:longitude")
+		print "Street Adress " + self.get_property("og:street-address")
+		print "Locality " + self.get_property("og:locality")
+		print "Region " + self.get_property("og:region")
+		print "Postal code " + self.get_property("og:postal-code")
+		print "Country name " + self.get_property("og:country-name")
+		print "Video"
+		print "Video link " + self.get_property("og:video")
+		print "height " + self.get_property("og:video:height")
+		print "width " + self.get_property("og:video:width")
+		print "type " + self.get_property("og:video:type")
+		print "Audio"
+		print "Audio URL " + self.get_property("og:audio")
+		print "Title " + self.get_property("og:audio:title")
+		print "Artist " + self.get_property("og:audio:artist")
+		print "Album " + self.get_property("og:audio:album")
+		print "Type " + self.get_property("og:audio:type")
 		print "----------------------------------"

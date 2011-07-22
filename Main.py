@@ -12,7 +12,7 @@ def get_og(name, soup):
 		return "No "+ name + " tag found"
 
 if __name__ == '__main__':
-	print "Initiating parse : CORRECT"
+	print "Initiating parse"
 	if len(sys.argv) > 2 : 
 		print "Missing URL. Terminating"
 		exit()

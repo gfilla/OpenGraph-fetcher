@@ -8,6 +8,7 @@ import urllib
 class OG: 
 	""" Open graph fetcher class."""
 	def __init__(self, url): 
+		"""Constructor connects to url and feeds BeautifulSoup with the html"""
 		try:
 			self.content = urllib2.urlopen(url).read()
 		except urllib2.URLError: 
@@ -17,6 +18,7 @@ class OG:
 		
 	
 	def get_property(self, name):
+		""" Parses the website for the specified og tag and returns the value if found"""
 		og_title = self.soup.findAll(property=name)
 		if( len(og_title) > 0 ):
 			og_title = og_title[0]["content"]
@@ -25,6 +27,7 @@ class OG:
 			return ""
 			
 	def print_all(self):
+		""" Prints all accepted OG tags to std.out."""
 		print "----------------------------------"
 		print "Title " + self.get_property("og:title")
 		print "Type " + self.get_property("og:type")
@@ -58,6 +61,7 @@ class OG:
 		print "----------------------------------"
 		
 	def cache_image(self, filename="cached.jpg"):
+		"""Saves image pointed to by og:image to specified path """
 		img_url = self.get_property("og:image")
 		if img_url != "":
 			urllib.urlretrieve(img_url, filename)

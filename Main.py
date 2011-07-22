@@ -1,19 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
-
-import BeautifulSoup
-import sys
-import urllib2
 import og
-
-def get_og(name, soup):
-	og_title = soup.findAll(property=name)
-	if( len(og_title) > 0 ):
-		og_title = og_title[0]["content"]
-		return og_title
-	else:
-		return "No "+ name + " tag found"
-
+""" Creates a OpenGraph fetcher class and prints some info and saves the image n stuff. """
 if __name__ == '__main__':
 	print "Initiating parse"
 	if len(sys.argv) > 2 : 

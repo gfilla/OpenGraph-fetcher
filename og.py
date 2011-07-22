@@ -1,14 +1,18 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
 import BeautifulSoup
 import sys
 import urllib2
+import urllib
 class OG: 
-	
+	""" Open graph fetcher class."""
 	def __init__(self, url): 
 		try:
 			self.content = urllib2.urlopen(url).read()
 		except urllib2.URLError: 
 			print "The URL speficied was not valid. Terminating"
-			exit()
+			exit(0)
 		self.soup = BeautifulSoup.BeautifulSoup(self.content)
 		
 	
@@ -18,7 +22,7 @@ class OG:
 			og_title = og_title[0]["content"]
 			return og_title
 		else:
-			return "No "+ name + " tag found"
+			return ""
 			
 	def print_all(self):
 		print "----------------------------------"
@@ -52,3 +56,11 @@ class OG:
 		print "Album " + self.get_property("og:audio:album")
 		print "Type " + self.get_property("og:audio:type")
 		print "----------------------------------"
+		
+	def cache_image(self, filename="cached.jpg"):
+		img_url = self.get_property("og:image")
+		if img_url != "":
+			urllib.urlretrieve(img_url, filename)
+			return True
+		else:
+			return False

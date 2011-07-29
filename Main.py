@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 import og
+import sys
 """ Creates a OpenGraph fetcher class and prints some info and saves the image n stuff. """
 if __name__ == '__main__':
 	print "Initiating parse"

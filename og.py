@@ -68,3 +68,14 @@ class OG:
 			return True
 		else:
 			return False
+			
+	def data_dict(self):
+		""" Returns dict of meta tags containing content"""
+		dataDict = {}
+		fields = ['title', 'type','image','url','description','site_name','email','phone_number','fax_number','latitude','longitude','street-address',\
+		'locality','region','postal-code','country-name','video','video:height','video:width','video:type','audio','audio:title','audio:artist','audio:album','audio:type']	
+		for category in fields:
+		    currentValue = self.get_property("og:" + category)
+		    if currentValue != '':
+				dataDict[category] = currentValue           
+		return(dataDict)
